@@ -18,7 +18,7 @@ cpdef object parse_file(str filename, object swevoc, str classValue):
                 continue
             elif elem.tag == "sentence":
                 currentSentence = Sentence()
-            elif elem.tag == "text":
+            elif elem.tag == "text" or elem.tag == "corpus":
                 currentDocument._metadata = {k:v for k,v in elem.items()}
         elif action == "end":
             if elem.tag == "w":
@@ -27,7 +27,7 @@ cpdef object parse_file(str filename, object swevoc, str classValue):
                 currentSentence.finalize()
                 currentDocument.addSentence(currentSentence)
                 sentenceCounter += 1
-            elif elem.tag == "text":
+            elif elem.tag == "text" or elem.tag == "corpus":
                 currentDocument.finalize()
                 #print(filename, "complete")
     return FeatureVector(currentDocument)

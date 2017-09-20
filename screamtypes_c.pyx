@@ -552,9 +552,8 @@ cdef class FeatureVector:
                self.ovixValue,
                self.nrValue,
                self.filename,
-               self.classValue,
-               '\n']
-        return ','.join([str(i) for i in res])
+               self.classValue]
+        return ';'.join([str(i) for i in res])+"\n"
         
 #class Sentence(object):
 #    
@@ -613,11 +612,12 @@ cdef class Sentence:
     cpdef finalize(self):
         self.buildTree(self.root)
         self.depth = self.root.depth()
+#        print(self.depth)
 #        self.treeBF = sum([len(wn.children) for wn in self.bow])/len(self.bow)
 #        for i in range(len(self.bow)):
 #            self.posBFs.extend([self.bow[i].pos] * len(self.bow[i].children))
 #            self.depBFs.extend([self.bow[i].deprel] * len(self.bow[i].children))
-        self.vbArities = Counter([len(w.children) for w in self.bow if w.pos == 'VB'])
+        self.vbArities = [len(w.children) for w in self.bow if w.pos == 'VB']
     
     cdef buildTree(self, head):
         cdef WordNode candidate
@@ -627,7 +627,9 @@ cdef class Sentence:
             candidate = self.non_root[i]
             if candidate.depheadref == head.ref:
                 candidate.dephead = head
-                head.children.append(candidate)
+                #head.children.append(candidate)
+                #print("adding child")
+                head.addChild(candidate)
                 #self.non_root.remove(candidate)
         for child in head.children:
             self.buildTree(child)
@@ -734,7 +736,7 @@ cdef class WordNode:
                 d = self.children[i].depth()
                 if d > maximum:
                     maximum = d
-            return maximum
+            return maximum + 1
 #        
 #        
         
