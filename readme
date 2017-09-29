@@ -1,0 +1,3 @@
+to compile cython code, run:
+
+python setupparser.py build_ext --inplace
