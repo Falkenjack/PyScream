@@ -68,12 +68,9 @@ cpdef parse_directory(source, out):
 ##    parse_directory("/home/johsj47/Desktop/RESEARCH/corpora/Citatkorpusar/GP/splitted_gp20"+str(i),
 ##                    "/home/johsj47/Desktop/RESEARCH/corpora/Citatkorpusar/GP/gp20"+str(i)+".csv")
 #
-for i in range(4,9):
-    parse_directory("/home/johsj47/Desktop/RESEARCH/corpora/Citatkorpusar/Webnews/splitted_webbnyheter200"+str(i),
-                    "/home/johsj47/Desktop/RESEARCH/corpora/Citatkorpusar/Webnews/webbnyheter200"+str(i)+".csv")
-#for i in range(10,14):
-#    parse_directory("/home/johsj47/Desktop/RESEARCH/corpora/Citatkorpusar/Webnews/splitted_webbnyheter20"+str(i),
-#                    "/home/johsj47/Desktop/RESEARCH/corpora/Citatkorpusar/Webnews/webbnyheter20"+str(i)+".csv")
+#for i in range(2004,2015):
+#    parse_directory("/home/johsj47/Desktop/RESEARCH/corpora/Citatkorpusar/Webnews/splitted_webbnyheter"+str(i),
+#                    "/home/johsj47/Desktop/RESEARCH/corpora/Citatkorpusar/Webnews/webbnyheter"+str(i)+".csv")
 #
 ## Skönlitteratur
 #
