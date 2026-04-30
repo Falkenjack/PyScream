@@ -68,6 +68,9 @@ cpdef parse_directory(source, out):
 ##    parse_directory("/home/johsj47/Desktop/RESEARCH/corpora/Citatkorpusar/GP/splitted_gp20"+str(i),
 ##                    "/home/johsj47/Desktop/RESEARCH/corpora/Citatkorpusar/GP/gp20"+str(i)+".csv")
 #
+for i in range(2004,2014):
+    parse_directory("/media/johsj47/23E8E28F50B9493D/corpus/GP/splitted_gp"+str(i),
+                    "/media/johsj47/23E8E28F50B9493D/corpus/GP/gp"+str(i)+".csv")
 #for i in range(2004,2015):
 #    parse_directory("/home/johsj47/Desktop/RESEARCH/corpora/Citatkorpusar/Webnews/splitted_webbnyheter"+str(i),
 #                    "/home/johsj47/Desktop/RESEARCH/corpora/Citatkorpusar/Webnews/webbnyheter"+str(i)+".csv")
